@@ -1,0 +1,89 @@
+---- config
+title: PEAR Log
+indent: 4
+height: 25
+width: 80
+auto_size: 1
+skip: 0
+#vim: gvim
+#guifont: Bitstream_Vera_Sans_Mono:h24
+vimrc: |
+  set nonu
+  set noruler
+  let loaded_minibufexplorer = 1
+  let g:loaded_indent_guides = 1
+
+---- center
+PEAR Log
+
+2013-03-06
+----
+== PEAR
+
+* PHP Extension and Application Repository
+* Site -  http://pear.php.net
+* 594 Packages
+----
+== Log
+
+* Logging Framework
+* Site - http://pear.php.net/package/Log/
+* Document - http://pear.github.com/Log/
+* pear install Log
+* v1.12.7
+---- php
+== Factory Method
+
+---- include code_01_factory_method.php
+---- php
+== Singleton Method
+
+---- include code_02_singleton_method.php
+---- php
+== Log Levels
+
+---- include code_03_levels.php
+---- php
+== Log Line Format
+
+---- include code_04_log_line_format.php
+---- php
+== Console
+
+---- include code_05_console.php
+---- php
+== File
+
+---- include code_06_file.php
+---- php
+== Firebug
+
+---- include code_07_firebug.php
+---- php
+== SQL
+
+---- include code_08_sql.php
+---- php
+== Syslog
+
+---- include code_09_syslog.php
+---- php
+== Window
+
+---- include code_10_window.php
+---- php
+== Composite
+
+---- include code_11_composite.php
+---- php
+== My Log Class
+
+---- include code_12_class.php
+---- center
+== GitHub
+
+https://github.com/bookwormkr/phpmeetup
+---- center
+Q & A
+---- center
+Thank you.
