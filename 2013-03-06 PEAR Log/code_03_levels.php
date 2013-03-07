@@ -4,14 +4,14 @@ require_once 'Log.php';
 
 $logger = Log::singleton('file', 'levels.log', 'factorial', null, PEAR_LOG_ERR);
 
-$logger->log('Step 1 - Emergency',   PEAR_LOG_EMERG);    // System is unusable
-$logger->log('Step 1 - Alert',       PEAR_LOG_ALERT);    // Immediate action required
-$logger->log('Step 1 - Critical',    PEAR_LOG_CRIT);     // Critical conditions
-$logger->log('Step 1 - Error',       PEAR_LOG_ERR);      // Error conditions
-$logger->log('Step 1 - Warning',     PEAR_LOG_WARNING);  // Warning conditions
-$logger->log('Step 1 - Notice',      PEAR_LOG_NOTICE);   // Normal but significant
-$logger->log('Step 1 - Information', PEAR_LOG_INFO);     // Informational
-$logger->log('Step 1 - Debug',       PEAR_LOG_DEBUG);    // Debug-level messages
+$logger->log('Step 1 - Emergency',   PEAR_LOG_EMERG);   // System is unusable
+$logger->log('Step 1 - Alert',       PEAR_LOG_ALERT);   // Immediate action required
+$logger->log('Step 1 - Critical',    PEAR_LOG_CRIT);    // Critical conditions
+$logger->log('Step 1 - Error',       PEAR_LOG_ERR);     // Error conditions
+$logger->log('Step 1 - Warning',     PEAR_LOG_WARNING); // Warning conditions
+$logger->log('Step 1 - Notice',      PEAR_LOG_NOTICE);  // Normal but significant
+$logger->log('Step 1 - Information', PEAR_LOG_INFO);    // Informational
+$logger->log('Step 1 - Debug',       PEAR_LOG_DEBUG);   // Debug-level messages
 
 $mask = Log::MASK(PEAR_LOG_WARNING) | Log::MAX(PEAR_LOG_CRIT) | 
     Log::MIN(PEAR_LOG_INFO);
