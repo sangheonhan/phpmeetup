@@ -4,6 +4,8 @@ require_once 'Console/Table.php';
 
 require_once 'factorial.php';
 
+error_reporting(E_ALL ^ E_NOTICE);
+
 $table = new Console_Table();
 
 $table->setHeaders(array('n', 'equation', 'factorial(n)'));
