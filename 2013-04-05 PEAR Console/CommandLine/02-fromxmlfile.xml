@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<command>
+    <name>head</name>
+    <description>Output the first part of files</description>
+    <version>1.0.0</version>
+    <option name="lines">
+	<short_name>-n</short_name>
+	<long_name>--lines</long_name>
+	<description>print the first K lines instead of the first 10</description>
+	<help_name>LINES</help_name>
+	<action>StoreInt</action>
+    </option>
+    <option name="bytes">
+	<short_name>-c</short_name>
+	<long_name>--bytes</long_name>
+	<description>print the first K bytes of each file</description>
+	<help_name>BYTES</help_name>
+	<action>StoreInt</action>
+    </option>
+    <argument name="files">
+	<description>print the first 10 lines of each FILE to standard output</description>
+	<multiple>true</multiple>
+	<help_name>FILE</help_name>
+    </argument>
+</command>

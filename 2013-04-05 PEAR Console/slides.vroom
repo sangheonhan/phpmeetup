@@ -1,0 +1,128 @@
+---- config
+title: PEAR Console
+indent: 2
+height: 25
+width: 80
+auto_size: 1
+skip: 0
+#vim: gvim
+#guifont: Bitstream_Vera_Sans_Mono:h24
+vimrc: |
+  set nonu
+  set noruler
+  let loaded_minibufexplorer = 1
+  let g:loaded_indent_guides = 1
+
+---- center
+PEAR Console
+
+2013-04-05
+----
+== PEAR Console
+
++* 콘솔 화면(텍스트)
++* 백엔드 개발자에게 추천
++* Console_Color
++* Console_Color2
++* Console_CommandLine
++* Console_Getargs
++* Console_Getopt
++* Console_GetoptPlus
++* Console_ProgressBar
++* Console_Table
+----
+== PEAR Console
+
++* 3개만 살펴보자
++* Console_CommandLine
++* Console_ProgressBar
++* Console_Table
+----
+== CommandLine
+
++* CLI 도구 옵션을 어떻게 처리했더라?
++* $argc & $argv
++* getopt()
++* Console_GetOpt
++* Console_GetOptPlus
++* Console_GetArgs
++* Console_CommandLine
+---- php
+== Command Line
+---- include CommandLine/01-commandline.php
+---- php
+== From XML
+---- include CommandLine/02-fromxmlfile.php
+---- xml
+---- include CommandLine/02-fromxmlfile.xml
+---- php
+== Choice
+---- include CommandLine/03-option_choice.php
+---- php
+== List
+---- include CommandLine/04-option_list.php
+---- php
+== Counter
+---- include CommandLine/05-option_counter.php
+---- php
+== Password
+---- include CommandLine/06-option_password.php
+---- php
+== Callback
+---- include CommandLine/07-option_callback.php
+---- php
+== True & False
+---- include CommandLine/08-option_truefalse.php
+---- php
+== Argument
+---- include CommandLine/09-argument.php
+---- php
+== Subcommand
+---- include CommandLine/10-subcommand.php
+---- php
+== Custom Action
+---- include CommandLine/11-customaction.php
+----
+== ProgressBar
+
++* 오래 걸리는 작업
++* 동작은 하는 건가? 얼마나 남았을까?
++* 10000, 20000, 30000 ...
++* printf & Carriage return(\r)
+---- php
+== Simple Progress Bar
+---- include ProgressBar/01-bar.php
+---- php
+== Progress Bar Options
+---- include ProgressBar/02-bar.php
+----
+== Table
+
++* 데이터를 화면에 출력해야 한다면?
++* printf
++* CSV, HTML
++* 콘솔은 아니다
++* MySQL처럼 콘솔에서 깔끔하게 보여줄 수 없을까?
+---- php
+== Add Row
+---- include Table/01-table.php
+---- php
+== Add Column
+---- include Table/02-addcol.php
+---- php
+== Insert Row
+---- include Table/03-insertrow.php
+---- php
+== Add Data
+---- include Table/04-adddata.php
+---- php
+== Calculate Total
+---- include Table/05-caltotal.php
+---- center
+== GitHub
+
+https://github.com/bookwormkr/phpmeetup
+---- center
+Q & A
+---- center
+Thank you.
