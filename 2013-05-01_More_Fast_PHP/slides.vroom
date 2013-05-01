@@ -1,0 +1,120 @@
+---- config
+title: 보다 빠른 PHP를 위한 탐구생활
+indent: 2
+height: 25
+width: 80
+auto_size: 1
+skip: 0
+#vim: gvim
+#guifont: Bitstream_Vera_Sans_Mono:h24
+vimrc: |
+  set nonu
+  set noruler
+  let loaded_minibufexplorer = 1
+  let g:loaded_indent_guides = 1
+
+---- center
+== 보다 빠른 PHP를 위한 탐구생활
+
+
+2013-05-02
+----
+== 발표자
+
+* 한상헌 (aka bookworm)
+* 웹서비스 백엔드 프로그래머 / 시스템 아키텍트
+* 하이텔 두루물 동호회 시삽
+* Blog - http://bookworm.pe.kr
+* Twitter - @bookwormkr
+----
+== 처리하는 작업
+
++* 데이터베이스
++* 텍스트 처리(Text Processing)
++* 연산
++* 배열(해시, 리스트)
+----
+== PHP의 배열
+
++* Array
++* SplFixedArray
++* Judy
+----
+== SplFixedArray
+
++* SPL(Standard PHP Library)
++* 고정 크기 배열
++* 크기 변경 가능
+----
+== Judy
+ 
++* Sparse Array
++* Douglas Baskins 발명
+----
+== 속도 비교
+ 
++* 순차 쓰기
++* 순차 읽기
++* 랜덤 쓰기
++* 랜덤 읽기
++* Sparse
+----
+== 순차 쓰기
+ 
+* Array:         100 %
+* SplFixedArray:  55 %
+* Judy:           72 %
+----
+== 순차 읽기
+ 
+* Array:         100 %
+* SplFixedArray:  97 %
+* Judy:          183 %
+----
+== 랜덤 쓰기
+ 
+* Array:         100 %
+* SplFixedArray:  75 %
+* Judy:           84 %
+----
+== 랜덤 읽기
+ 
+* Array:         100 %
+* SplFixedArray:  81 %
+* Judy:           79 %
+----
+== Sparse 순차 쓰기
+ 
+* Array: 100 %
+* Judy:   12 %
+----
+== Sparse 순차 읽기
+ 
+* Array: 100 %
+* Judy:   31 %
+----
+== Sparse 랜덤 쓰기
+ 
+* Array: 100 %
+* Judy:   23 %
+----
+== Sparse 랜덤 읽기
+
+* Array: 100 %
+* Judy:   28 %
+----
+== 결론
+ 
++* 배열 크기가 고정이면 SplFixedArray
++* 배열 첨자가 드문 떨어져 있으면 Judy
++* 그 외의 경우 Array
++* array 관련 함수가 필요한 경우
+---- center
+== GitHub
+
+https://github.com/bookwormkr/codingeverybody
+http://bookworm.pe.kr/
+---- center
+Q & A
+---- center
+Thank you.
