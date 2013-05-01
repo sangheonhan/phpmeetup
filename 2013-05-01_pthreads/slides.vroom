@@ -1,0 +1,173 @@
+---- config
+title: PHP pthreads
+indent: 2
+height: 25
+width: 80
+auto_size: 1
+skip: 0
+#vim: gvim
+#guifont: Bitstream_Vera_Sans_Mono:h24
+vimrc: |
+  set nonu
+  set noruler
+  let loaded_minibufexplorer = 1
+  let g:loaded_indent_guides = 1
+
+---- center
+PHP pthreads
+
+2013-05-02
+----
+== 발표자
+
+* 한상헌 (aka bookworm)
+* 웹서비스 백엔드 프로그래머 / 시스템 아키텍트
+* 하이텔 두루물 동호회 시삽
+* Blog - http://bookworm.pe.kr
+* Twitter - @bookwormkr
+----
+== 운영체계(OS)
+
+* 프로세스(Process)
+* 스레드(Thread)
+* 임계영역(Critical Section)
+* 세마포어(Semaphore)
+* 뮤텍스(Mutex)
+* 교착상태(Deadlock)
+----
+== 프로세스
+
++* 프로세스(process)는 컴퓨터에서 연속적으로 실행되고 있는 
+  컴퓨터 프로그램이다. (Wikipedia)
++* 멀티프로세싱
++* 멀티태스킹
++  * 선점형
++  * 비선점형
+----
+== 스레드
+
++* 스레드(thread)는 어떠한 프로그램 내에서, 특히 프로세스 
+  내에서 실행되는 흐름의 단위를 말한다. (Wikipedia)
++* 힙(Heap), 코드, 데이터 공유
++* 스택(Stack) 비공유
++* 경쟁 상태(Race Condition)
+----
+== 스레드가 중요한 이유
+
++* 과거 CPU는 속도(클럭)를 올림
++* 근래 CPU는 코어(Core)를 늘림
+----
+== 임계영역
+
++* 임계 구역(critical section) 또는 공유변수 영역은 
+  병렬컴퓨팅에서 둘 이상의 스레드가 동시에 접근해서는 
+  안되는 공유 자원(자료 구조 또는 장치)을 접근하는 
+  코드의 일부를 말한다. (Wikipedia)
++* 세마포어 같은 것을 이용해 구현
+----
+== 세마포어
+
++* 세마포어(Semaphore)는 에츠허르 데이크스트라가 고안한, 두 
+  개의 원자적 함수로 조작되는 정수 변수로서, 멀티프로그래밍 
+  환경에서 공유 자원에 대한 접근을 제한하는 방법으로 
+  사용된다. (Wikipedia)
++* 원자적이란 나눌 수 없는 것
++* i += 5; // in C
++  * movl    -12(%rbp), %eax
+  * addl    $5, %eax
+  * movl    %eax, -12(%rbp)
++* 계수 세마포어, 이진 세마포어(0, 1)
+----
+== 뮤텍스
+
++* Mutual Exclusion(상호배제)
++* 이진 세마포어와 유사
++* 뮤텍스는 프로세스 종속적
+----
+== 교착상태
+
++* 교착 상태(deadlock)란 두 개 이상의 작업이 서로 상대방의 
+  작업이 끝나기 만을 기다리고 있기 때문에 결과적으로 
+  아무것도 완료되지 못하는 상태를 가리킨다. (Wikipedia)
++* 철학자들의 만찬 문제
++* http://upload.wikimedia.org/wikipedia/commons/6/6a/Dining_philosophers.png
++* 기아 상태
+----
+== POSIX Threads
+
++* POSIX 스레드(POSIX Threads, 약어: PThread)는 병렬적으로 
+  작동하는 소프트웨어의 작성을 위해서 제공되는 표준 API다. 
+  (Wikipedia)
++* pthreads
+----
+== PHP pthreads
+
++* http://pthreads.org/
++* Joe Watkins (UK) - https://github.com/krakjoe
++* 2012년 8월 28일
++* PECL
++* 0.0.43 (beta)
+----
+== Installation
+
++* pecl install pthreads-beta
++* --with-tsrm-pthreads --enable-maintainer-zts
++* Thread Safety => enabled
+---- php
+== Non-Thread
+---- include examples/01_single_process.php
+---- php
+== Single Thread
+---- include examples/02_single_thread.php
+---- php
+== Multi Thread
+---- include examples/03_multi_thread.php
+---- php
+== Synchronized
+---- include examples/04_synchronized.php
+----
+== Worker
+
++* Thread의 하나
++* Thread는 run() 함수 실행 후 종료
++* Stackable 클래스에서 파생 된 인스턴스(작업)을 기다림
++* shutdown() 함수로 종료
+----
+== Stackable
+
++* 작업(Work)
++* Worker에 전달(stack) 가능
++* 동시에 여러 Worker에 전달도 가능
+---- php
+== Worker
+---- include examples/05_worker.php
+---- php
+== Pool
+---- include examples/06_pool.php
+----
+== Mutex
+
++* create & destroy
++* lock & unlock
++* trylock
+---- php
+== Mutex
+---- include examples/07_mutex.php
+----
+== Cond
+
++* create & destroy
++* signal & wait
++* broadcast
+---- php
+== Cond
+---- include examples/08_cond.php
+---- center
+== GitHub
+
+https://github.com/bookwormkr/codingeverybody
+http://bookworm.pe.kr/
+---- center
+Q & A
+---- center
+Thank you.
