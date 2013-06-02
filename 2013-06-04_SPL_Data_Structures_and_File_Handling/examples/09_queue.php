@@ -10,12 +10,8 @@ $queue->setIteratorMode(
     SplDoublyLinkedList::IT_MODE_KEEP
 );
 
-$queue->rewind();
-while ($queue->valid()) {
-    $n = $queue->current();
+foreach ($queue as $n) {
     print "$n\n";
-
-    $queue->next();
 }
 
 echo "Count: ", $queue->count(), "\n";

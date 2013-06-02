@@ -9,12 +9,8 @@ echo $dll->serialize(), "\n";
 
 $dll->unserialize('i:0;:s:1:"a";:s:1:"b";:s:1:"c";');
 
-$dll->rewind();
-while ($dll->valid()) {
-    $n = $dll->current();
+foreach ($dll as $n) {
     print "$n\n";
-
-    $dll->next();
 }
 
 ?>

@@ -17,12 +17,8 @@ $dll->setIteratorMode(
     SplDoublyLinkedList::IT_MODE_KEEP
 );
 
-$dll->rewind();
-while ($dll->valid()) {
-    $n = $dll->current();
+foreach ($dll as $n) {
     print "$n\n";
-
-    $dll->next();
 }
 
 ?>

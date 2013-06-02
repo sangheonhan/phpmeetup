@@ -10,12 +10,8 @@ $stack->setIteratorMode(
     SplDoublyLinkedList::IT_MODE_DELETE
 );
 
-$stack->rewind();
-while ($stack->valid()) {
-    $n = $stack->current();
+foreach ($stack as $n) {
     print "$n\n";
-
-    $stack->next();
 }
 
 echo "Count: ", $stack->count(), "\n";
