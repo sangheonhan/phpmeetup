@@ -22,10 +22,10 @@ foreach ($sos as $obj) {
 
 echo "--\n";
 
-$sos->detach($obj3);
+$sos->detach($obj3);                    // 케른 블러드후프 사망
 foreach ($sos as $obj) {
     if ($obj == $obj2) {
-        $sos->setInfo('Blood Elf');
+        $sos->setInfo('Blood Elf');     // 실바나스는 블엘로
     }
 }
 

@@ -1,0 +1,272 @@
+---- config
+title: SPL - Datastructures
+indent: 2
+height: 25
+width: 80
+auto_size: 1
+skip: 0
+#vim: gvim
+#guifont: Bitstream_Vera_Sans_Mono:h24
+vimrc: |
+  set nonu
+  set noruler
+  let loaded_minibufexplorer = 1
+  let g:loaded_indent_guides = 1
+
+---- center
+SPL - Datastructures
+
+2013-06-04
+----
+== 발표자
+
+* 한상헌 (aka bookworm)
+* 웹서비스 백엔드 프로그래머 / 시스템 아키텍트
+* 하이텔 두루물 동호회 시삽
+* Blog - http://bookworm.pe.kr
+* Twitter - @bookwormkr
+----
+== SPL
+
+* Standard PHP Library
+* v5.3
+----
+== SPL
+
+* 자료구조(Datastructures)
+* 반복자(Iterators)
+* 인터페이스(Interfaces)
+* 예외(Exceptions)
+* 파일 처리(File Handling)
+* Etc
+----
+== Datastructures
+
+* Doubly Linked Lists
+* Heaps
+* Arrays
+* Map
+----
+== Doubly Linked Lists
+
+* SplDoublyLinkedList
+  * SplStack
+  * SplQueue
+----
+== SplDoublyLinkedList
+
+* mixed pop ( void )
+* void push ( mixed $value )
+* mixed shift ( void )
+* void unshift ( mixed $value )
+---- php
+== SplDoublyLinkedList
+
+---- include examples/01_dll_add_remove.php
+----
+== SplDoublyLinkedList
+
+* bool valid ( void )
+* void prev ( void )
+* void next ( void )
+* void rewind ( void )
+---- php
+== SplDoublyLinkedList
+
+---- include examples/02_dll_traverse.php
+----
+== SplDoublyLinkedList
+
+* bool offsetExists ( mixed $index )
+* mixed offsetGet ( mixed $index )
+* void offsetSet ( mixed $index , mixed $newval )
+* void offsetUnset ( mixed $index )
+---- php
+== SplDoublyLinkedList
+
+---- include examples/03_dll_offset.php
+----
+== SplDoublyLinkedList
+
+* mixed top ( void )
+* mixed bottom ( void )
+* mixed current ( void )
+---- php
+== SplDoublyLinkedList
+
+---- include examples/04_dll_top_bottom.php
+----
+== SplDoublyLinkedList
+
+* int getIteratorMode ( void )
+* void setIteratorMode ( int $mode )
+----
+== SplDoublyLinkedList
+
+* SplDoublyLinkedList::IT_MODE_LIFO
+* SplDoublyLinkedList::IT_MODE_FIFO
+* SplDoublyLinkedList::IT_MODE_DELETE
+* SplDoublyLinkedList::IT_MODE_KEEP
+---- php
+== SplDoublyLinkedList
+
+---- include examples/05_dll_iterator_mode.php
+----
+== SplDoublyLinkedList
+
+* bool isEmpty ( void )
+* mixed key ( void )
+* int count ( void )
+---- php
+== SplDoublyLinkedList
+
+---- include examples/06_dll_empty_count.php
+----
+== SplDoublyLinkedList
+
+* string serialize ( void )
+* void unserialize ( string $serialized )
+---- php
+== SplDoublyLinkedList
+
+---- include examples/07_dll_serialization.php
+---- php
+== SplStack
+
+---- include examples/08_stack.php
+---- php
+== SplQueue
+
+---- include examples/09_queue.php
+----
+== Heaps
+
+* SplHeap
+  * SplMaxHeap
+  * SplMinHeap
+* SplPriorityQueue
+----
+== SplHeap
+
+* abstract int compare ( mixed $value1 , mixed $value2 )
+----
+== SplHeap
+
+* bool valid ( void )
+* void next ( void )
+* void rewind ( void )
+---- php
+== SplHeap
+
+---- include examples/10_heap.php
+----
+== SplHeap
+
+* void insert ( mixed $value )
+* mixed extract ( void )
+* mixed top ( void )
+* mixed current ( void )
+---- php
+== SplHeap
+
+---- include examples/11_heap_top_and_extract.php
+----
+== SplHeap
+
+* bool isEmpty ( void )
+* mixed key ( void )
+* int count ( void )
+---- php
+== SplHeap
+
+---- include examples/12_heap_key.php
+---- php
+== SplMaxHeap
+
+---- include examples/13_heap_max.php
+---- php
+== SplMinHeap
+
+---- include examples/14_heap_min.php
+---- php
+== SplPriorityQueue
+
+* int compare ( mixed $priority1 , mixed $priority2 )
+* void insert ( mixed $value , mixed $priority )
+* void setExtractFlags ( int $flags )
+---- php
+== SplPriorityQueue
+
+---- include examples/15_spq_insert.php
+----
+== SplPriorityQueue
+
+* SplPriorityQueue::EXTR_DATA
+* SplPriorityQueue::EXTR_PRIORITY
+* SplPriorityQueue::EXTR_BOTH
+---- php
+== SplPriorityQueue
+
+---- include examples/16_spq_extract_flag.php
+----
+== SplFixedArray
+
+* Array
+* PHP Array != Array
+* Fixed Size & Integer Index
+----
+== SplFixedArray
+
+* int getSize ( void )
+* int setSize ( int $size )
+---- php
+== SplFixedArray
+
+---- include examples/17_sfa_size.php
+----
+== SplFixedArray
+
+* static SplFixedArray fromArray ( array $array [, bool $save_indexes = true ] )
+* array toArray ( void )
+---- php
+== SplFixedArray
+
+---- include examples/18_sfa_array.php
+----
+== SplObjectStorage
+
+* Map (Object => Data)
+* Object Set
+----
+== SplObjectStorage
+
+* void attach ( object $object [, mixed $data = NULL ] )
+* void detach ( object $object )
+* mixed getInfo ( void )
+* void setInfo ( mixed $data )
+---- php
+---- include examples/19_sos_attach_detach.php
+----
+== SplObjectStorage
+
+* bool contains ( object $object )
+* string getHash ( object $object )
+---- php
+---- include examples/20_sos_contains_and_hash.php
+----
+== SplObjectStorage
+
+* void addAll ( SplObjectStorage $storage )
+* void removeAll ( SplObjectStorage $storage )
+* void removeAllExcept ( SplObjectStorage $storage )
+---- php
+---- include examples/21_sos_set.php
+---- center
+== GitHub
+
+https://github.com/bookwormkr/codingeverybody
+http://bookworm.pe.kr/
+---- center
+Q & A
+---- center
+Thank you.

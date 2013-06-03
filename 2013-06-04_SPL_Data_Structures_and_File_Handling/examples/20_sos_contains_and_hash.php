@@ -23,7 +23,7 @@ foreach ($sos as $obj) {
     echo $obj->name, " - ", $sos->getHash($obj), "\n";
 }
 
-var_dump($sos->contains($obj4));
-var_dump($sos->contains($obj5));
+var_dump($sos->contains($obj4));    // 볼진이 있다
+var_dump($sos->contains($obj5));    // 이름만 볼진
 
 ?>

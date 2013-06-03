@@ -3,7 +3,7 @@ $dll = new SplDoublyLinkedList();
 
 $dll->push(1);
 $dll->push(2);
-$dll->push(3);
+$dll->push(3);  // 1, 2, 3
 
 if (
     $dll->getIteratorMode() === 
