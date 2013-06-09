@@ -53,81 +53,81 @@ SPL - Datastructures
   * SplStack
   * SplQueue
 ----
-== SplDoublyLinkedList
+== SplDoublyLinkedList #1
 
 * mixed pop ( void )
 * void push ( mixed $value )
 * mixed shift ( void )
 * void unshift ( mixed $value )
 ---- php
-== SplDoublyLinkedList
+== SplDoublyLinkedList #2
 
 ---- include examples/01_dll_add_remove.php
 ----
-== SplDoublyLinkedList
+== SplDoublyLinkedList #3
 
 * bool valid ( void )
 * void prev ( void )
 * void next ( void )
 * void rewind ( void )
 ---- php
-== SplDoublyLinkedList
+== SplDoublyLinkedList #4
 
 ---- include examples/02_dll_traverse.php
 ----
-== SplDoublyLinkedList
+== SplDoublyLinkedList #5
 
 * bool offsetExists ( mixed $index )
 * mixed offsetGet ( mixed $index )
 * void offsetSet ( mixed $index , mixed $newval )
 * void offsetUnset ( mixed $index )
 ---- php
-== SplDoublyLinkedList
+== SplDoublyLinkedList #6
 
 ---- include examples/03_dll_offset.php
 ----
-== SplDoublyLinkedList
+== SplDoublyLinkedList #7
 
 * mixed top ( void )
 * mixed bottom ( void )
 * mixed current ( void )
 ---- php
-== SplDoublyLinkedList
+== SplDoublyLinkedList #8
 
 ---- include examples/04_dll_top_bottom.php
 ----
-== SplDoublyLinkedList
+== SplDoublyLinkedList #9
 
 * int getIteratorMode ( void )
 * void setIteratorMode ( int $mode )
 ----
-== SplDoublyLinkedList
+== SplDoublyLinkedList #10
 
 * SplDoublyLinkedList::IT_MODE_LIFO
 * SplDoublyLinkedList::IT_MODE_FIFO
 * SplDoublyLinkedList::IT_MODE_DELETE
 * SplDoublyLinkedList::IT_MODE_KEEP
 ---- php
-== SplDoublyLinkedList
+== SplDoublyLinkedList #11
 
 ---- include examples/05_dll_iterator_mode.php
 ----
-== SplDoublyLinkedList
+== SplDoublyLinkedList #12
 
 * bool isEmpty ( void )
 * mixed key ( void )
 * int count ( void )
 ---- php
-== SplDoublyLinkedList
+== SplDoublyLinkedList #13
 
 ---- include examples/06_dll_empty_count.php
 ----
-== SplDoublyLinkedList
+== SplDoublyLinkedList #14
 
 * string serialize ( void )
 * void unserialize ( string $serialized )
 ---- php
-== SplDoublyLinkedList
+== SplDoublyLinkedList #15
 
 ---- include examples/07_dll_serialization.php
 ---- php
@@ -146,38 +146,38 @@ SPL - Datastructures
   * SplMinHeap
 * SplPriorityQueue
 ----
-== SplHeap
+== SplHeap #1
 
 * abstract int compare ( mixed $value1 , mixed $value2 )
 ----
-== SplHeap
+== SplHeap #2
 
 * bool valid ( void )
 * void next ( void )
 * void rewind ( void )
 ---- php
-== SplHeap
+== SplHeap #3
 
 ---- include examples/10_heap.php
 ----
-== SplHeap
+== SplHeap #4
 
 * void insert ( mixed $value )
 * mixed extract ( void )
 * mixed top ( void )
 * mixed current ( void )
 ---- php
-== SplHeap
+== SplHeap #5
 
 ---- include examples/11_heap_top_and_extract.php
 ----
-== SplHeap
+== SplHeap #6
 
 * bool isEmpty ( void )
 * mixed key ( void )
 * int count ( void )
 ---- php
-== SplHeap
+== SplHeap #7
 
 ---- include examples/12_heap_key.php
 ---- php
@@ -189,77 +189,83 @@ SPL - Datastructures
 
 ---- include examples/14_heap_min.php
 ---- php
-== SplPriorityQueue
+== SplPriorityQueue #1
 
 * int compare ( mixed $priority1 , mixed $priority2 )
 * void insert ( mixed $value , mixed $priority )
 * void setExtractFlags ( int $flags )
 ---- php
-== SplPriorityQueue
+== SplPriorityQueue #2
 
 ---- include examples/15_spq_insert.php
 ----
-== SplPriorityQueue
+== SplPriorityQueue #3
 
 * SplPriorityQueue::EXTR_DATA
 * SplPriorityQueue::EXTR_PRIORITY
 * SplPriorityQueue::EXTR_BOTH
 ---- php
-== SplPriorityQueue
+== SplPriorityQueue #4
 
 ---- include examples/16_spq_extract_flag.php
 ----
-== SplFixedArray
+== SplFixedArray #1
 
 * Array
 * PHP Array != Array
 * Fixed Size & Integer Index
 ----
-== SplFixedArray
+== SplFixedArray #2
 
 * int getSize ( void )
 * int setSize ( int $size )
 ---- php
-== SplFixedArray
+== SplFixedArray #3
 
 ---- include examples/17_sfa_size.php
 ----
-== SplFixedArray
+== SplFixedArray #4
 
 * static SplFixedArray fromArray ( array $array [, bool $save_indexes = true ] )
 * array toArray ( void )
 ---- php
-== SplFixedArray
+== SplFixedArray #5
 
 ---- include examples/18_sfa_array.php
 ----
-== SplObjectStorage
+== SplObjectStorage #1
 
 * Map (Object => Data)
 * Object Set
 ----
-== SplObjectStorage
+== SplObjectStorage #2
 
 * void attach ( object $object [, mixed $data = NULL ] )
 * void detach ( object $object )
 * mixed getInfo ( void )
 * void setInfo ( mixed $data )
 ---- php
+== SplObjectStorage #3
+
 ---- include examples/19_sos_attach_detach.php
 ----
-== SplObjectStorage
+== SplObjectStorage #4
 
 * bool contains ( object $object )
 * string getHash ( object $object )
 ---- php
+== SplObjectStorage #5
+
 ---- include examples/20_sos_contains_and_hash.php
 ----
-== SplObjectStorage
+== SplObjectStorage #6
 
 * void addAll ( SplObjectStorage $storage )
 * void removeAll ( SplObjectStorage $storage )
 * void removeAllExcept ( SplObjectStorage $storage )
 ---- php
+== SplObjectStorage #7
+
 ---- include examples/21_sos_set.php
 ---- center
 == GitHub
