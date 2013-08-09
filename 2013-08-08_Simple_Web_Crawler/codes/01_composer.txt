@@ -1,0 +1,34 @@
+$ composer init
+
+                                            
+  Welcome to the Composer config generator  
+                                            
+
+
+This command will guide you through creating your composer.json config.
+
+Package name (<vendor>/<name>) [bookworm/web2rss]: 
+Description []: 
+Author [bookworm <han@sangheon.com>]: 
+Minimum Stability []: 
+License []: 
+
+Define your dependencies.
+
+Would you like to define your dependencies (require) interactively [yes]? no
+Would you like to define your dev dependencies (require-dev) interactively [yes]? no
+
+{
+    "name": "bookworm/web2rss",
+    "authors": [
+        {
+            "name": "bookworm",
+            "email": "han@sangheon.com"
+        }
+    ],
+    "require": {
+
+    }
+}
+
+Do you confirm generation [yes]?    

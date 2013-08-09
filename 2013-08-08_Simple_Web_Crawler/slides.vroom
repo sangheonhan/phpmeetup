@@ -1,0 +1,127 @@
+---- config
+title: 초간단 웹크롤러 만들기
+indent: 2
+height: 25
+width: 80
+auto_size: 1
+skip: 0
+#vim: gvim
+#guifont: Bitstream_Vera_Sans_Mono:h24
+vimrc: |
+  set nonu
+  set noruler
+  let loaded_minibufexplorer = 1
+  let g:loaded_indent_guides = 1
+
+---- center
+초간단 웹크롤러 만들기
+
+2013-08-08
+----
+== 웹 크롤러
+
+* 크롤링
+* 봇(Bot), 웹 스파이더(Web Spider)
+* 게시판 => RSS
+----
+== 필요조건
+
+* PHP 5.3+
+* PECL - http
+* Tidy
+* 컴포저(Composer)
+----
+== PECL - http
+
+* 우분투(Ubuntu)
+  * sudo pecl install pecl_http
+
+* OS X(homebrew)
+  * brew install php55-http
+
+* PHPBrew
+  * phpbrew ext install pecl_http
+  * phpbrew ext http enable
+
+* php -m | grep http
+----
+== Tidy
+
+* 우분투
+  * sudo aptitude install php5-tidy
+
+* OS X
+  * brew install php55 --with-tidy
+
+* PHPBrew
+  * phpbrew ext install tidy
+  * phpbrew ext tidy enable
+
+* php -m | grep tidy
+----
+== 컴포저
+
+* 우분투
+  * curl -sS https://getcomposer.org/installer | php
+  * sudo mv composer.phar /usr/local/bin/composer
+
+* OS X
+  * brew install composer
+----
+== 패키지
+
+* Sunra\PhpSimple
+* Suin\RSSWriter
+----
+== 컴포저 초기화 #1
+
+* mkdir web2rss
+* cd web2rss
+* composer init
+----
+== 컴포저 초기화 #2
+
+---- include codes/01_composer.txt
+---- json
+== 컴포저 초기화 #3
+
+---- include codes/02_composer.json
+---- 
+== 컴포저 초기화 #4
+
+* composer install
+
+Loading composer repositories with package information
+Installing dependencies
+  - Installing sunra/php-simple-html-dom-parser (v1.5.0)
+    Loading from cache
+
+  - Installing suin/php-rss-writer (1.2)
+    Loading from cache
+
+Writing lock file
+Generating autoload files
+---- php
+== 패키지 사용 준비
+
+---- include codes/03_package.php
+---- php
+== HTML 문서객체모델(DOM) 파서
+
+---- include codes/04_html_dom_parser.php
+---- php
+== 게시판 목록 분석
+
+---- include codes/05_board_list.php
+---- php
+== 게시물 분석
+
+---- include codes/06_article.php
+---- php
+== RSS 만들기
+
+---- include codes/07_feed.php
+---- center
+질문 / 답변
+---- center
+감사합니다.

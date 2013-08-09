@@ -1,0 +1,13 @@
+{
+    "name": "bookworm/web2rss",
+    "authors": [
+        {
+            "name": "bookworm",
+            "email": "han@sangheon.com"
+        }
+    ],
+    "require": {
+	"sunra/php-simple-html-dom-parser": "1.5.0",
+	"suin/php-rss-writer": ">=1.0"
+    }
+}
