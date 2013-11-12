@@ -1,0 +1,108 @@
+---- config
+title: Deployment PHP
+indent: 2
+height: 25
+width: 80
+auto_size: 1
+skip: 0
+vim: vim
+guifont: Bitstream_Vera_Sans_Mono:h24
+vimrc: |
+  set nonu
+  set noruler
+  let loaded_minibufexplorer = 1
+  let g:loaded_indent_guides = 1
+
+---- center
+Deployment PHP
+
+2013-11-12
+
+bookworm
+----
+== 필요 이유
+
++* 형상 관리 대중화
++* 분산 처리 보편화
++* 클라우드 보급
++* QA 과정 발달
++* 정적 파일 캐쉬
+----
+== 작은 규모
+
++* 오버 엔지니어링 주의
++* FTP 또는 SCP
++* rsync
++* Git
+   * $ git archive --format=tar.gz --prefix=hello-1.0/ --remote=ssh://localhost/home/bookworm/workspace/phpmeetup master | tar -xvzf -
+   * 동기화 문제
++* xargs 활용
+----
+== 조금 더 큰 규모
+----
+== 웹 서버 분리
+
+* Nginx + PHP-fpm
+* Apache Prefork + Worker
+----
+== 캐시를 위한 태그
+
++* <link rel="stylesheet" type="text/css" href="//cdn.sstatic.net/stackoverflow/all.css?v=135f5f1576b1">
+----
+== 선처리
+
++* 문법(Lint) 검사
++* 유닛 테스트
++* 매크로 적용
++* 상수 파일 빌드
++* JS, CSS 병합
+----
+== 후처리
+
++* 심볼릭 링크
+   * $ ln -fns /var/www/hello-1.0 /var/www/hello
++* 디렉토리 권한
++* 프리로드(Preload) 데이터
++* 세션 정리
++* 서버별 상수들
+----
+== 어떤 도구를 쓸까?
+----
+== RDIST
+
++* rdist (Remote file DISTribution client program)
++* Unix 도구
++* 파일 패턴
+   * /usr/include/{*.h,{stand,sys,vax*,pascal,machine}/*.h
++* 선처리, 후처리 가능
++* 쉘스크립트 및 도구 활용 필요
+----
+== Phing
+
++* PHing Is Not GNU make
++* http://www.phing.info/
++* Ant와 비슷한 문법 구조 (XML)
++* 다양한 Tasks 지원
++* 기능 확장 편리
+----
+== 신경 쓸 것
+
++* 소스 코드와 로그 파일 상호 분리
++* 저장소와 코드 일치
++* 서버 시각 동기화
++* 긴급 복구 대비
+   * /var/www/hello (web root)
+   * /var/www/hello-1.0
+   * /var/www/hello-1.1 
+   * ln -fns /var/www/hello-1.1 /var/www/hello
+   * ln -fns /var/www/hello-1.0 /var/www/hello
+----
+== 더 나아가자면
+
++* 데이터베이스 형상 관리
+   * http://dbv.vizuina.com/
+   * http://dbdeploy.com/
+---- center
+Q & A
+---- center
+Thank you.
