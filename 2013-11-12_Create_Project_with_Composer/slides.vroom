@@ -1,0 +1,45 @@
+---- config
+title: Create Project with Composer
+indent: 2
+height: 25
+width: 80
+auto_size: 1
+skip: 0
+vim: vim
+guifont: Bitstream_Vera_Sans_Mono:h24
+vimrc: |
+  set nonu
+  set noruler
+  let loaded_minibufexplorer = 1
+  let g:loaded_indent_guides = 1
+
+---- center
+Create Project with Composer
+
+2013-11-12
+
+Bookworm
+----
+== Composer Init
+
+$ composer init
+----
+== Create Project
+
+$ composer create-project slim/slim-skeleton
+---- json
+== GitHub
+
+---- include composer.json
+---- json
+== Packages
+
+---- include packages.json
+----
+== Create Project #2
+
+$ composer create-project --repository-url=./packages.json bookworm/php-skeleton foobar
+---- center
+Q & A
+---- center
+Thank you.

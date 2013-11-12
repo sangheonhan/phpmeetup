@@ -1,0 +1,23 @@
+{
+    "name": "bookworm/php-skeleton",
+    "description": "PHP Skeleton",
+    "license": "BSD-3-Clause",
+    "require": {
+        "slim/slim": "2.*",
+        "slim/extras": "2.*",
+        "mustache/mustache": "2.*",
+        "php-activerecord/php-activerecord": "1.*"
+    },
+    "authors": [
+        {
+        "name": "bookworm",
+        "email": "han@sangheon.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/jpfuentes2/php-activerecord.git"
+        }
+    ]
+}

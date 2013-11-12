@@ -1,0 +1,11 @@
+{
+    "package": {
+        "name": "bookworm/php-skeleton",
+        "version": "1.0.0",
+        "source": {
+            "url": "https://github.com/bookwormkr/php-skeleton.git",
+            "type": "git",
+            "reference": "master"
+        }
+    }
+}
