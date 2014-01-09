@@ -1,0 +1,131 @@
+---- config
+title: Garbage Collection in PHP
+indent: 2
+height: 25
+width: 80
+auto_size: 1
+skip: 0
+vim: vim
+guifont: Bitstream_Vera_Sans_Mono:h24
+vimrc: |
+  set nonu
+  set noruler
+  let loaded_minibufexplorer = 1
+  let g:indent_guides_enable_on_vim_startup = 0
+  let g:indent_guides_space_guides = 0
+  let g:ignore_overlength = 1
+
+---- center
+Garbage Collection in PHP
+
+2014-01-09
+
+bookworm
+----
+== 용어
+
++* 가비지(Garbage)
+  - 동적 할당한 메모리 중 필요없어진 것
+
++* 가비지 콜렉션(Garbage Collection)
+  - 가비지를 Free 메모리로 반환(해제)하는 것
+
++* 메모리 누수(Memory Leak)
+  - 가비지가 반환되지 않고 계속 남아있는 것
+----
+== 변수
+
+* 변수명은 심볼 테이블(Symbol Table)에 저장
+* 값은 zval 안에 저장
+----
+== zval
+
+* type
+* value
+* is_ref (부울린)
+* refcount
+---- php
+== 예제 #1
+---- include examples/01_zval.php
+---- php
+== 예제 #2
+---- include examples/02_xdebug_debug_zval.php
+---- php
+== 예제 #3
+---- include examples/03_assign.php
+---- php
+== 예제 #4
+---- include examples/04_unset.php
+---- php
+== 예제 #5
+---- include examples/05_array.php
+---- php
+== 예제 #6
+---- include examples/06_array2.php
+---- php
+== 예제 #7
+---- include examples/07_unset_array.php
+---- php
+== 예제 #8
+---- include examples/08_ref.php
+---- php
+== 예제 #9
+---- include examples/09_ref_and_val.php
+---- php
+== 예제 #10
+---- include examples/10_array_ref.php
+---- php
+== 예제 #11
+---- include examples/11_unset_array_ref.php
+----
+== 알고리즘 #1
+
+* 참조 횟수 계산(Reference Counting)
+  - Concurrent Cycle Collection in Reference Counted Systems
+* refcount가 증가 -> 가비지가 될 가능성이 없다
+* refcount가 감소 -> 가비지가 될 가능성이 있다
+* refcount가 0이 되면 zval을 해제
+----
+== 알고리즘 #2
+
+* root buffer에 가비지가 될 가능성이 있는 zval들을 모은다
+* root buffer가 가득차면 가비지 콜렉션을 수행한다
+* root buffer 크기 기본값은 10000
+----
+== 알고리즘 #3
+
+* root buffer에 모인 zval은 PURPLE
+* 깊이 우선 탐색으로 발견한 zval의 refcount를 1 감소
+* 감소한 zval은 GREY (중복 방지)
+----
+== 알고리즘 #4
+
+* 다시 깊이 우선 탐색으로 refcount 조사
+* refcount가 0 이면 WHITE로 표시
+* refcount가 0 보다 크면 깊이 우선 탐색으로 refcount를 다시 1 증가 시키고 BLACK으로 표시
+----
+== 알고리즘 #5
+
+* root buffer를 순차적으로 탐색
+* root buffer에 모은 zval을 제거
+* 이 때 WHITE로 표시한 zval도 해제
+----
+== 관련 함수
+
+* void debug_zval_dump ( mixed $variable [, mixed $... ] )
+* bool gc_enabled ( void )
+* void gc_enable ( void )
+* void gc_disable ( void )
+* int gc_collect_cycles ( void )
+----
+== 참고 사항
+
+* GC를 꺼도 root buffer에 zval을 수집한다
+* GC를 끈 경우 root buffer가 가득차면 수집하지 않는다
+* root buffer에 수집 못 한 zval은 메모리 누수를 일으킬 수 있다
+* gc_collect_cycles 함수를 사용해 root buffer가 가득차지 않아도 GC를 할 수 있다
+* GC를 끄기 전에 gc_collect_cycles를 호출하면 root buffer가 가득차는 것을 막는데 효과가 있다
+---- center
+Q & A
+---- center
+Thank you.
