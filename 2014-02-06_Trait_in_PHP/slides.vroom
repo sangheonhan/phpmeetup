@@ -1,0 +1,95 @@
+---- config
+title: Traits in PHP
+indent: 2
+height: 25
+width: 80
+auto_size: 0
+skip: 0
+vim: vim
+guifont: Bitstream_Vera_Sans_Mono:h24
+vimrc: |
+  set nonu
+  set noruler
+  let loaded_minibufexplorer = 1
+  let g:indent_guides_enable_on_vim_startup = 0
+  let g:indent_guides_space_guides = 0
+  let g:ignore_overlength = 1
+
+---- center
+Traits in PHP
+
+2014-02-06
+
+bookworm
+----
+== 다중 상속
+
+* 여러 부모 클래스로부터 상속
+* 현실 세계와 흡사
+* 코드 재사용성을 높임
+----
+== 다이아몬드 문제
+
+* class A
+* class B extends A
+* class C extends A
+* class D extends B, C
+* D -> 어느 부모로?
+----
+== 해결책 #1
+
+* 깊이 우선 탐색
+* 너비 우선 탐색
+* C3 선형화 (Python, Perl 6)
+----
+== 해결책 #2
+
+* 다중 상속을 금지한다 (Java, PHP 5.3까지)
+----
+== 해결책 #3
+
+* Mixin (Ruby)
+* Traits (Scala, PHP 5.4+)
+----
+== Class vs Interface vs Trait 
+
+* 클래스
+  - 작게 구현 할 수 있음
+* 인터페이스
+  - 구현을 상속 할 수 있음
+---- php
+== Interface
+
+---- include examples/01_interface.php
+---- php
+== Traits
+
+---- include examples/02_trait.php
+---- php
+== Composite Traits
+
+---- include examples/03_composite_traits.php
+---- php
+== Collision
+
+---- include examples/04_collision.php
+---- php
+== Insteadof
+
+---- include examples/05_insteadof.php
+---- php
+== Visibility
+
+---- include examples/06_visibility.php
+---- php
+== Singleton
+
+---- include examples/Singleton.php
+---- php
+== Coffee Classes
+
+---- include examples/Coffee.php
+---- center
+Q & A
+---- center
+Thank you.
