@@ -1,0 +1,144 @@
+---- config
+title: PHP와 MP3의 랑데뷰
+indent: 2
+height: 25
+width: 80
+auto_size: 1
+skip: 0
+vim: vim
+guifont: Bitstream_Vera_Sans_Mono:h24
+vimrc: |
+  set nonu
+  set noruler
+  let loaded_minibufexplorer = 1
+  let g:indent_guides_enable_on_vim_startup = 0
+  let g:indent_guides_space_guides = 0
+  let g:ignore_overlength = 1
+  set laststatus=0
+
+---- center
+PHP와 MP3의 랑데뷰
+
+2014-06-11
+
+bookworm
+----
+== MP3?
+
++* MPEG Audio Layer-3
++* Moving Picture Experts Group
++* FLAC, ALE
+----
+== 옛날 옛적엔?
+
++* 디렉토리
++* 가수 / 앨범 / 디스크 / 트랙
++* 장르 / 발매년도
+----
+== 요즘은?
+
++* 아이튠즈 / 윈도우 미디어 센터
++* 태그
++* ID3 tags
+----
+== ID3 tags
+
++* IDv1 (v1, v1.1)
++* IDv2 (v2.2, v2.3, v2.4)
+----
+== 인코딩 문제
+
++* ID3v1에는 인코딩 정보가 없다
++* ISO 8859-1로 인코딩 했다고 가정한다
++* 애플리케이션마다 다르게 처리한다
++* 시스템의 인코딩을 따른다
+----
+== 아이튠즈의 문제
+
++* ID3 태그에 따라 자체적으로 MP3 파일을 구축한다
++* 한국어 이외의 언어로 설정 할 경우
++* EUC-KR로 저장한 ID3v1 태그는 ISO 8859-1로 해석
++* 디렉토리와 파일 이름이 바뀐다
+----
+== 문제 해결 시도
+
++* 일일히 수작업으로 다시 수정하자.
++* 도구를 사용한다. (EasyTag)
++* 나는 개발자다.
+----
+== getID3
+
++* http://getid3.sourceforge.net/
++* https://packagist.org/packages/nass600/get-id3
+----
+== Finder
+
++* https://packagist.org/packages/nette/finder
+---- json
+== Composer
+
+---- include mkid3/composer.json
+---- php
+== MP3 파일 찾기
+
+<?php
+foreach (Finder::findFiles('*.mp3')->from($argv[1]) as $file) {
+    ...
+}
+?>
+---- php
+== 곡 정보 얻기
+
+<?php
+$pattern = '/^(\.\/)?
+    (?<artist>[^\/]+)\/
+    (?<album>[^\/]+)\/
+    (?<disc>\d+)?-?
+    (?<track>\d+)\s
+    (?<title>[^\/]+)\.mp3$
+    /x';
+if (preg_match($pattern, $file, $m)) {
+    ...
+}
+?>
+---- php
+== ID3 태그 준비
+
+<?php
+$tagwriter = new getid3_writetags;
+$tagwriter->filename = $file;
+$tagwriter->tagformats = array('id3v2.3');
+$tagwriter->overwrite_tags = true;
+$tagwriter->tag_encoding = 'UTF-8'; 
+$tagwriter->remove_other_tags = true;
+?>
+---- php
+== ID3 태그 준비
+
+<?php
+$tags['artist'] = $tags['album'] = $tags['title'] = array();
+$tags['artist'][] = $m['artist'];
+$tags['album'][] = $m['album'];
+$tags['title'][] = $m['title'];
+
+if (isset($m['track'])) {
+    $tags['track'] = array($m['track']);
+}
+if (isset($m['disc'])) {
+    $tags['part_of_a_set'] = array($m['disc']);
+}
+?>
+---- php
+== ID3 태그 쓰기
+
+<?php
+if ($tagwriter->WriteTags() == false) { 
+    echo "ERROR:\t".implode("\n", $tagwriter->errors).".\n";
+} else {
+    echo "OK:\t{$file}\n";
+}
+?>
+---- center
+Q & A
+---- center
+감사합니다.

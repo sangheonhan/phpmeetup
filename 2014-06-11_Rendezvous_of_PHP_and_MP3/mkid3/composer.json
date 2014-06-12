@@ -1,0 +1,14 @@
+{
+    "name": "bookworm/mkid3",
+    "description": "Make ID3 tags",
+    "require": {
+        "nette/finder": "2.2.*",
+        "nass600/get-id3": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "bookworm",
+            "email": "han@sangheon.com"
+        }
+    ]
+}
