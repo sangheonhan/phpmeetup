@@ -63,7 +63,7 @@ trait NoTopping
     }
 }
 
-class Coffee
+abstract class Coffee
 {
     public function recipe()
     {
