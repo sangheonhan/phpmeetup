@@ -1,0 +1,96 @@
+---- config
+title: Beyond IPC (feat. Sync)
+indent: 2
+height: 25
+width: 80
+auto_size: 1
+skip: 0
+vim: vim
+guifont: Bitstream_Vera_Sans_Mono:h24
+vimrc: |
+  set nonu
+  set noruler
+  let loaded_minibufexplorer = 1
+  let g:indent_guides_enable_on_vim_startup = 0
+  let g:indent_guides_space_guides = 0
+  let g:ignore_overlength = 1
+  set laststatus=0
+
+---- center
+Beyond IPC
+(feat. Sync)
+
+2014-08-06
+
+bookworm
+---- center
+== IPC
+
+Inter-Process Communication
+----
+== IPC
+
+* File
+* Signal
+* Socket
+* Pipe
+* Semaphore
+* Shared memory
+----
+== IPC & PHP
+
+* File - fopen
+* Signal - pcntl_signal, posix_kill
+* Socket - socket
+* Pipe - popen
+* Semaphore - sem*
+* Shared memory - shm*
+---- center
+Modern PHP!!
+---- center
+Shared Memory -> APC
+---- center
+Semaphore -> Sync
+----
+== Sync
+
+* CubicleSoft PHP Extension
+* Synchronization Objects (sync)
+* PECL
+* https://github.com/php/pecl-system-sync
+* pecl install sync
+----
+== Sync
+
+* Mutex
+* Semaphore
+* Event
+* Reader-Writer
+---- php
+== Mutex
+
+---- include examples/01_mutex.php
+---- php
+== Semaphore
+
+---- include examples/02_semaphore.php
+---- php
+== Event - fire
+
+---- include examples/03_event_fire.php
+---- php
+== Event - wait
+
+---- include examples/03_event_wait.php
+---- php
+== Reader-Writer
+
+---- include examples/04_reader.php
+---- php
+== Reader-Writer
+
+---- include examples/04_writer.php
+---- center
+Q & A
+---- center
+Thank you.
