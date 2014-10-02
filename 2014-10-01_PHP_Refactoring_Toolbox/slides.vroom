@@ -1,0 +1,61 @@
+---- config
+title: PHP Refactoring Toolbox
+indent: 2
+height: 25
+width: 80
+auto_size: 1
+skip: 0
+vim: vim
+guifont: Bitstream_Vera_Sans_Mono:h24
+vimrc: |
+  set nonu
+  set noruler
+  let loaded_minibufexplorer = 1
+  let g:indent_guides_enable_on_vim_startup = 0
+  let g:indent_guides_space_guides = 0
+  let g:ignore_overlength = 1
+  set laststatus=0
+
+---- center
+PHP Refactoring Toolbox
+
+2014-10-01
+
+bookworm
+---- center
+
+http://www.vim.org/scripts/script.php?script_id=5020
+
+https://github.com/adoy/vim-php-refactoring-toolbox
+
+---- php
+== Rename Local Variable
+---- include ./examples/01_rename_local_variable.php
+---- php
+== Rename Class Variable
+---- include ./examples/02_rename_class_variable.php
+---- php
+== Extract Use Statement
+---- include ./examples/03_extract_use_statement.php
+---- php
+== Extract Class Property
+---- include ./examples/04_extract_class_property.php
+---- php
+== Extract Method
+---- include ./examples/05_extract_method.php
+---- php
+== Create Property
+---- include ./examples/06_create_property.php
+---- php
+== Detect unused "use" statements
+---- include ./examples/07_detect_unused_use_statement.php
+---- php
+== Align assignments
+---- include ./examples/08_align_assignments.php
+---- php
+== Create setters and getters
+---- include ./examples/09_create_setters_and_getters.php
+---- center
+Q & A
+---- center
+Thank you.
