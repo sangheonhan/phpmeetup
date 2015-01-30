@@ -1,0 +1,80 @@
+---- config
+title: Parallel
+indent: 2
+height: 25
+width: 80
+auto_size: 1
+skip: 0
+vim: vim
+guifont: Bitstream_Vera_Sans_Mono:h24
+vimrc: |
+  set nonu
+  set noruler
+  let loaded_minibufexplorer = 1
+  let g:indent_guides_enable_on_vim_startup = 0
+  let g:indent_guides_space_guides = 0
+  let g:ignore_overlength = 1
+  set laststatus=0
+
+---- center
+Parallel
+
+2014-11-05
+
+bookworm
+----
+== 멀티태스킹
+
++* Job Queue
++* Fork
++* pThread
+----
+== 장단점
+
++* Job Queue
+   - 간단하다
+   - Job Queue 필요하다
++* Fork
+   - 안정적이다
+   - 데이터 교환이 어렵다
++* pThread
+   - 강력하다
+   - 어렵다
+----
+== Parallel
+
++* 간단하다
++* 결과값의 처리가 쉽다
+---- php
+== run()
+
+---- include examples/01_run.php
+---- php
+== values()
+
+---- include examples/02_values.php
+---- php
+== each()
+
+---- include examples/03_each.php
+---- php
+== map()
+
+---- include examples/04_map.php
+---- php
+== Singletasking
+
+---- include examples/05_single.php
+---- text
+== Parallel
+
+ +--------+-----+---------------+-------------------+
+ |        |     | Same Function | Several Functions |
+ +--------+-----+---------------+-------------------+
+ | Return | Yes | map()         | values()          |
+ |        | No  | each()        | run()             |
+ +--------+-----+---------------+-------------------+
+---- center
+Q & A
+---- center
+Thank you.
