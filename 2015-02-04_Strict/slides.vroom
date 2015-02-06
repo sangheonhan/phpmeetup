@@ -1,0 +1,71 @@
+---- config
+title: Strict
+indent: 2
+height: 25
+width: 80
+auto_size: 1
+skip: 0
+vim: vim
+guifont: Bitstream_Vera_Sans_Mono:h24
+vimrc: |
+  set nonu
+  set noruler
+  let loaded_minibufexplorer = 1
+  let g:indent_guides_enable_on_vim_startup = 0
+  let g:indent_guides_space_guides = 0
+  let g:ignore_overlength = 1
+  set laststatus=0
+
+---- center
+Strict
+
+2015-02-04
+
+bookworm
+----
+== Strict
+
+* Joe Watkins
+* pthreads, phpdbg
+* https://github.com/krakjoe/strict
+* Contributor of PHP (#15)
+---- php
+== String
+
+---- include examples/01_string.php
+---- php
+== Integer
+
+---- include examples/02_integer.php
+---- php
+== Float and Double
+
+---- include examples/03_float.php
+---- php
+== Boolean
+
+---- include examples/04_boolean.php
+---- php
+== Resource
+
+---- include examples/05_resource.php
+---- php
+== Default
+
+---- include examples/06_default.php
+---- php
+== NULL
+
+---- include examples/07_null.php
+---- php
+== strict_cast()
+
+---- include examples/08_strict_cast.php
+---- php
+== Easter Egg
+
+---- include examples/09_egg.php
+---- center
+Q & A
+---- center
+Thank you.
